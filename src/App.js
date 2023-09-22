@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
-function App() {
+import Home from './pages/home';
+import SignIn from './pages/auth-sign-in';
+import SignUp from './pages/auth-sign-up';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="text-white">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth/sign_in" element={<SignIn />} />
+        <Route path="/auth/sign_up" element={<SignUp />} />
+      </Routes>
+      <Toaster />
+    </main>
   );
-}
+};
 
 export default App;
